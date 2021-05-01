@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/fcc-frontend-projects/static/css/main.ea1455b2.chunk.css",
+    "main.js": "/fcc-frontend-projects/static/js/main.fbe0dba4.chunk.js",
+    "main.js.map": "/fcc-frontend-projects/static/js/main.fbe0dba4.chunk.js.map",
+    "runtime-main.js": "/fcc-frontend-projects/static/js/runtime-main.7880f74c.js",
+    "runtime-main.js.map": "/fcc-frontend-projects/static/js/runtime-main.7880f74c.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/fcc-frontend-projects/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.fe98bcad.chunk.js": "/fcc-frontend-projects/static/js/2.fe98bcad.chunk.js",
+    "static/js/2.fe98bcad.chunk.js.map": "/fcc-frontend-projects/static/js/2.fe98bcad.chunk.js.map",
+    "index.html": "/fcc-frontend-projects/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/fcc-frontend-projects/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.ea1455b2.chunk.css.map": "/fcc-frontend-projects/static/css/main.ea1455b2.chunk.css.map",
+    "static/js/2.fe98bcad.chunk.js.LICENSE.txt": "/fcc-frontend-projects/static/js/2.fe98bcad.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7880f74c.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.fe98bcad.chunk.js",
+    "static/css/main.ea1455b2.chunk.css",
+    "static/js/main.fbe0dba4.chunk.js"
+  ]
+}
