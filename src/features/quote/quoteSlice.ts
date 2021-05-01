@@ -4,14 +4,14 @@ import { fetchQuotes } from "./quoteAPI";
 interface QuoteState {
   quote: string;
   author: string;
-  isSpecial: boolean;
+  tweetQuote: string;
   status: "idle" | "loading" | "failed";
 };
 
 const initialState: QuoteState = {
   quote: "",
   author: "",
-  isSpecial: false,
+  tweetQuote: "",
   status: "idle",
 };
 
@@ -40,6 +40,7 @@ export const quoteSlice = createSlice({
         state.status = "idle";
         state.quote = action.payload.quote;
         state.author = action.payload.author;
+        state.tweetQuote = `https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=${encodeURIComponent(`"${state.quote}"- ${state.author}`)}`;
       });
   },
 });
