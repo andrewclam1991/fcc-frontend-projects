@@ -4,12 +4,14 @@ import { fetchQuotes } from "./quoteAPI";
 interface QuoteState {
   quote: string;
   author: string;
+  isSpecial: boolean;
   status: "idle" | "loading" | "failed";
 };
 
 const initialState: QuoteState = {
   quote: "",
   author: "",
+  isSpecial: false,
   status: "idle",
 };
 
@@ -41,8 +43,6 @@ export const quoteSlice = createSlice({
       });
   },
 });
-
-// export const { getRandomQuote } = quoteSlice.actions;
 
 export const selectText = (state: RootState) => state.quote.quote;
 export const selectAuthor = (state: RootState) => state.quote.author;
