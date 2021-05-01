@@ -1,38 +1,49 @@
 import { useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { getNextQuote } from './quoteSlice';
+import { getRandomQuote } from './quoteSlice';
 
 export function Quote() {
   const quote = useAppSelector(state => state.quote);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getNextQuote())
-  },[dispatch])
+    dispatch(getRandomQuote())
+  }, [dispatch])
 
   return (
-    <div id="quote-box">
-      <span
-        id="text">
-        {quote.text}
-      </span>
-      <span
-        id="author">
-        {quote.author}
-      </span>
-      <a
-        id="tweet-quote"
-        href="https://twitter.com/intent/tweet"
-        target="_blank"
-        rel="noreferrer">
-        Tweet
-      </a>
-      <button
-        id="new-quote"
-        aria-label="Get Quote"
-        onClick={() => dispatch(getNextQuote())}>
-        New Quote
-      </button>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <Card id="quote-box">
+            <Card.Title
+              id="author">
+              {quote.status}
+              {quote.author}
+            </Card.Title>
+            <Card.Body
+              id="text">
+              {quote.quote}
+            </Card.Body>
+            <a
+              id="tweet-quote"
+              href="https://twitter.com/intent/tweet"
+              target="_blank"
+              rel="noreferrer">
+              Tweet
+            </a>
+            <Button
+              id="new-quote"
+              onClick={() => dispatch(getRandomQuote())}>
+              New Quote
+            </Button>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }

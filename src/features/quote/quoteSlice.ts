@@ -1,30 +1,50 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import type { RootState } from "../../app/store";
-
-interface QuoteState{
-  text: string,
-  author: string,
+import { fetchQuotes } from "./quoteAPI";
+interface QuoteState {
+  quote: string;
+  author: string;
+  status: "idle" | "loading" | "failed";
 };
 
 const initialState: QuoteState = {
-  text: "",
+  quote: "",
   author: "",
+  status: "idle",
 };
 
-export const quoteSlice = createSlice({
-  name: 'quote',
-  initialState,
-  reducers: {
-    getNextQuote: (state) => {
-      state.text = state.text + "2";
-      state.author = 'Andrew Lam';
-    },
+export const getRandomQuote = createAsyncThunk(
+  "quote/getRandomQuote",
+  async () => {
+    const quotes = await fetchQuotes();
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    return quotes[randomIndex];
   }
+);
+
+export const quoteSlice = createSlice({
+  name: "quote",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getRandomQuote.rejected, (state) => {
+        state.status = "failed";
+      })
+      .addCase(getRandomQuote.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getRandomQuote.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.quote = action.payload.quote;
+        state.author = action.payload.author;
+      });
+  },
 });
 
-export const { getNextQuote } = quoteSlice.actions;
+// export const { getRandomQuote } = quoteSlice.actions;
 
-export const selectText = (state: RootState) => state.quote.text;
+export const selectText = (state: RootState) => state.quote.quote;
 export const selectAuthor = (state: RootState) => state.quote.author;
 
 export default quoteSlice.reducer;
