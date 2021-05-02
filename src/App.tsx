@@ -11,13 +11,10 @@ import { Markdown } from './features/markdown/Markdown';
 
 export default function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUB}>
       <div>
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
             <li>
               <Link to="/random-quote-generator">Random Quote Generator</Link>
             </li>
@@ -29,14 +26,9 @@ export default function App() {
       </div>
 
       <Switch>
-        <Route path="/random-quote-generator">
-          <Quote />
-        </Route>
-        <Route path="/markdown-previewer">
-          <Markdown />
-        </Route>
-        <Route path="/">
-        </Route>
+        <Route path="/random-quote-generator" component={Quote}/>
+        <Route path="/markdown-previewer" component={Markdown} />
+        <Route path="/" component={Quote} />
       </Switch>
     </Router>
   );
