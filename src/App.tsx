@@ -11,7 +11,7 @@ import { Markdown } from './features/markdown/Markdown';
 
 export default function App() {
   return (
-    <Router basename={process.env.PUB}>
+    <Router basename={process.env.PUBLIC_URL}>
       <div>
         <nav>
           <ul>
