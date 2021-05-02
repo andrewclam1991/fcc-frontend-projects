@@ -1,5 +1,5 @@
 import {
-  BrowserRouter as Router,
+  HashRouter,
   Switch,
   Route,
   Link
@@ -11,7 +11,7 @@ import { Markdown } from './features/markdown/Markdown';
 
 export default function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <div>
         <nav>
           <ul>
@@ -30,6 +30,6 @@ export default function App() {
         <Route path="/markdown-previewer" component={Markdown} />
         <Route path="/" component={Quote} />
       </Switch>
-    </Router>
+    </HashRouter>
   );
 }
