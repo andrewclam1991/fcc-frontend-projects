@@ -1,6 +1,6 @@
 {
-  "name": "aclam-fcc-frontend-projects",
-  "homepage": "https://andrewclam1991.github.io/fcc-frontend-projects/",
+  "name": "aclam-fcc-playground",
+  "homepage": "https://fcc.aclam.dev/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
