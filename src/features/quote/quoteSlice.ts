@@ -32,6 +32,9 @@ export const quoteSlice = createSlice({
     builder
       .addCase(getRandomQuote.rejected, (state) => {
         state.status = "failed";
+        state.quote = "";
+        state.author = "";
+        state.tweetQuote = "";
       })
       .addCase(getRandomQuote.pending, (state) => {
         state.status = "loading";

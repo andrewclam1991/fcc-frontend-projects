@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons'
 import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
-import styles from './Quote.module.css';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { getRandomQuote } from './quoteSlice';
 
