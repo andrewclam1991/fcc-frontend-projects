@@ -11,5 +11,7 @@ export const parseMarkdown = (input: string) => {
   marked.setOptions({
     gfm: true,
   });
-  return sanitizeHtml(marked(input));
+  return sanitizeHtml(marked(input), {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+  });
 };
