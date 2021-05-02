@@ -10,6 +10,7 @@ import sanitizeHtml from "sanitize-html";
 export const parseMarkdown = (input: string) => {
   marked.setOptions({
     gfm: true,
+    breaks: true,
   });
   return sanitizeHtml(marked(input), {
     allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
